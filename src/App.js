@@ -1,17 +1,17 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { TheLayout } from './container';
-import { Login } from './view';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { TheLayout } from "./container";
+import { Login } from "./view";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from "react-router-dom";
-import './app.css';
+import "./app.css";
 
 const App = () => {
   let isLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
-  
+
   return (
     <Router>
       <Switch>
@@ -21,7 +21,7 @@ const App = () => {
         <Route exact path="/login">
           <Login />
         </Route>
-        {isLoggedIn === null ? (
+        {isLoggedIn === true ? (
           <Route path="/">
             <TheLayout />
           </Route>
@@ -30,6 +30,6 @@ const App = () => {
       </Switch>
     </Router>
   );
-}
+};
 
 export default App;
